@@ -1,3 +1,3 @@
 # calculator
-Basic calculator that changes depending on the number of characters
+Basic four-function calculator implemented with JavaScript
 
