@@ -13,6 +13,7 @@ const keys = document.querySelectorAll(".keys button");
 const clear = document.querySelector(".clear");
 const remove = document.querySelector(".delete");
 
+//Helper method for the 4 basic operations
 function operators(operator, value1, value2){
     if(operator == "+"){
         return value1 + value2;
@@ -28,6 +29,7 @@ function operators(operator, value1, value2){
     }
 }
 
+//Stores the user's inputs and displays it
 function store(e){
     temp = e.target.classList[0];
     if(temp.length > 1 && (currentValue != null || previousValue != null)){
@@ -43,6 +45,7 @@ function store(e){
     checkEquals();
 }
 
+//Checks when display values on the top half
 function checkTopDisplay(){
     if(operator != null){
         if(previousValue != null){
@@ -55,6 +58,7 @@ function checkTopDisplay(){
     }
 }
 
+//Handles action when equals button is pressed
 function checkEquals(){
     if(equalsUsed === true){
         previousValue = Number(operators(operator, previousValue, currentValue).toFixed(8));
@@ -77,6 +81,7 @@ function checkEquals(){
     }
 }
 
+//Handles when the 4 basic operations are pressed
 function checkOperators(temp){
     integerValue = "";
     decimalValue = "";
@@ -131,6 +136,7 @@ function checkDecimals(){
     }
 }
 
+//Handles when the numbers are pressed
 function checkNumbers(temp){
     if(decimalUsed === true){
         decimalValue += temp;
@@ -148,6 +154,7 @@ function checkNumbers(temp){
     }
 }
 
+//Clears all values
 function clearThis(){
     integerValue = "";
     decimalValue = "";
@@ -160,6 +167,7 @@ function clearThis(){
     displayBottom.textContent = 0;
 }
 
+//Removes the latest value on the screen
 function removeThis(){
     if(decimalValue === ""){
         if(decimalUsed === true){
